@@ -1,0 +1,4 @@
+app:
+  Env: debug122
+  JwtSecret: a68d1594a0dcfb23
+  HeartBeat: 15m
