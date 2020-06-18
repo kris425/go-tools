@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"encoding/binary"
 	"errors"
-	"github.com/kris425/go-tools/network/iface"
+	"github.com/kris425/go-tools/network"
 	"io"
 	"log"
 )
@@ -41,7 +41,7 @@ func (c *LengthCodec) Encode(data []byte) ([]byte, error) {
 }
 
 // 接收数据解码
-func (c *LengthCodec) Decode(conn iface.IConn) ([]byte, error) {
+func (c *LengthCodec) Decode(conn network.IConn) ([]byte, error) {
 	tcpConn, ok := conn.(*Conn)
 	if !ok {
 		return nil, errors.New("invalid type")

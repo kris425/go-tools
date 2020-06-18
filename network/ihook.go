@@ -1,4 +1,4 @@
-package iface
+package network
 
 type IHook interface {
 	OnRecv(conn IConn, data []byte)

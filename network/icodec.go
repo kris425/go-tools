@@ -1,4 +1,4 @@
-package iface
+package network
 
 type ICodec interface {
 	Encode(data []byte) ([]byte, error)

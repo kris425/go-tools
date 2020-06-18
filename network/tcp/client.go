@@ -3,7 +3,6 @@ package tcp
 import (
 	"context"
 	"github.com/kris425/go-tools/network"
-	"github.com/kris425/go-tools/network/iface"
 	"log"
 	"net"
 )
@@ -25,7 +24,7 @@ type Client struct {
 
 	RemoteAddr string
 
-	conn iface.IConn
+	conn network.IConn
 
 	context context.Context
 	cancel  context.CancelFunc

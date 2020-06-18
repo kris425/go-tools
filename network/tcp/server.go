@@ -3,7 +3,6 @@ package tcp
 import (
 	"context"
 	"github.com/kris425/go-tools/network"
-	"github.com/kris425/go-tools/network/iface"
 	"go.uber.org/atomic"
 	"log"
 	"net"
@@ -36,7 +35,7 @@ type Server struct {
 	sessID *atomic.Uint64
 
 	// 钩子函数
-	hook iface.IHook
+	hook network.IHook
 
 	// context
 	context context.Context

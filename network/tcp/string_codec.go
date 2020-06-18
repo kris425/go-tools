@@ -1,6 +1,8 @@
 package tcp
 
-import "github.com/kris425/go-tools/network/iface"
+import (
+	"github.com/kris425/go-tools/network"
+)
 
 func NewStringCodec() *StringCodec {
 	return &StringCodec{}
@@ -13,7 +15,7 @@ func (StringCodec) Encode(data []byte) ([]byte, error) {
 	return data, nil
 }
 
-func (StringCodec) Decode(conn iface.IConn) ([]byte, error) {
+func (StringCodec) Decode(conn network.IConn) ([]byte, error) {
 	c := conn.(*Conn)
 	data := make([]byte, c.PackageMax)
 	var n int

@@ -1,8 +1,6 @@
 package network
 
-import "github.com/kris425/go-tools/network/iface"
-
-func NewConnOption(hook iface.IHook, packageMax uint32, codec iface.ICodec) *ConnOption {
+func NewConnOption(hook IHook, packageMax uint32, codec ICodec) *ConnOption {
 	return &ConnOption{
 		Hook:       hook,
 		PackageMax: packageMax,
@@ -12,18 +10,18 @@ func NewConnOption(hook iface.IHook, packageMax uint32, codec iface.ICodec) *Con
 
 type ConnOption struct {
 	// 事件钩子接口
-	Hook iface.IHook
+	Hook IHook
 
 	// 包最大长度
 	PackageMax uint32
 
 	// 编码器
-	Codec iface.ICodec
+	Codec ICodec
 }
 type OptionFunc func(option *ConnOption)
 
 // 设置Conn连接钩子
-func SetHook(hook iface.IHook) OptionFunc {
+func SetHook(hook IHook) OptionFunc {
 	return func(option *ConnOption) {
 		option.Hook = hook
 	}
@@ -37,7 +35,7 @@ func SetPackageMax(len uint32) OptionFunc {
 }
 
 // 设置编码器
-func SetCodec(codec iface.ICodec) OptionFunc {
+func SetCodec(codec ICodec) OptionFunc {
 	return func(option *ConnOption) {
 		option.Codec = codec
 	}
